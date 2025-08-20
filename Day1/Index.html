@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="index.css" />
+  <body>
+    <h1>Day1 - JS Practice</h1>
+    <p>Hello world with javascript</p>
+    <button class="disturb-alert" onClick="{showAlert()}">Disturb Alert</button>
+    <button onClick="{showDate()}" id="date" onClick="{showHello()}">
+      Hello World
+    </button>
+  </body>
+
+  <script>
+    function showDate() {
+      document.getElementById("date").innerHTML = Date();
+      console.log(Date());
+    }
+
+    function showHello() {
+      alert("Hello World");
+    }
+    function showAlert() {
+      alert("Welcome Billionaire");
+    }
+
+    // for (let i = 1; i <= 10; i++) {
+    //   alert("I am a billionaire");
+    //   console.log("I am abhishek KUnwar");
+    // }
+  </script>
+</html>

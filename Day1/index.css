@@ -1,0 +1,6 @@
+.disturb-alert{
+    padding:5px;
+    border-radius: 10px;
+    border:2px solid tomato;
+    background-color: rgb(255, 224, 219);
+}
