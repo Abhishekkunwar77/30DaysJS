@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Calculator</title>
+  </head>
+  <body>
+    <h1>Simple mini calculator</h1>
+    <input id="num1" type="number" placeholder="Enter first number" />
+    <input id="num2" type="number" placeholder="Enter second number" />
+    <button onclick="Addition()">Addition</button>
+    <button onclick="Subtraction()">Subtraction</button>
+    <button onclick="Multiplication()">Multiplication</button>
+    <button onclick="Division()">Division</button>
+    <p id="result"></p>
+  </body>
+
+  <script>
+    function Addition() {
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = "Result: " + (num1 + num2);
+    }
+
+    function Subtraction() {
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = "Result: " + (num1 - num2);
+    }
+
+    function Multiplication() {
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText = "Result: " + num1 * num2;
+    }
+
+    function Division() {
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+      document.getElementById("result").innerText =
+        num2 === 0
+          ? "Error cannot be divisible by zero"
+          : "Result: " + num1 / num2;
+
+      // if(num2==0){
+      //     document.getElementById("result").innerText="Error, cannot be divided by 0"
+      // }
+    }
+  </script>
+</html>
