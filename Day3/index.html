@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Temperature Converter</h1>
+    <div class="main-container">
+      <div class="left-side-converter">
+        <input
+          class="input-box"
+          type="number"
+          id="celsius"
+          placeholder="Enter celsius"
+        />
+        <button class="button" onclick="toFahrenheit()">
+          Convert to Fahrenheit
+        </button>
+      </div>
+      <div class="middle-side-converter">
+        <input
+          class="input-box"
+          type="number"
+          id="fahrenheit"
+          placeholder="Enter Fahrenheit"
+        />
+        <button class="button" onclick="toCelsius()">Conver to Celsius</button>
+      </div>
+      <div class="right-side-converter">
+        <input
+          class="input-box"
+          type="number"
+          id="celsius1"
+          placeholder="Enter celsius"
+        />
+        <button class="button" onclick="toKelvin()">Conver to Kelvin</button>
+      </div>
+      <p id="result1"></p>
+      <p id="result2"></p>
+      <p id="result3"></p>
+    </div>
+    <script>
+      function toFahrenheit() {
+        let c = Number(document.getElementById("celsius").value);
+        let f = (c * 9) / 5 + 32;
+        document.getElementById(
+          "result1"
+        ).innerText = `Result : ${c} °C = ${f} °F`;
+      }
+
+      function toCelsius() {
+        let f = Number(document.getElementById("fahrenheit").value);
+        let c = ((f - 32) * 5) / 9;
+        document.getElementById(
+          "result2"
+        ).innerText = `Result : ${f} °F=${c} °C`;
+      }
+      function toKelvin() {
+        let c = Number(document.getElementById("celsius1").value);
+        let k = c + 274.15;
+        document.getElementById("result3").innerText = `Result: ${c} °C = ${k} °K`;
+      }
+    </script>
+  </body>
+</html>
