@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Game</title>
+  </head>
+  <body>
+    <p id="counter">0</p>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="reset">Reset</button>
+    <script>
+      let resetSelect = document.getElementById("reset");
+      let counterSelect = document.getElementById("counter");
+      let plusSelect = document.getElementById("plus");
+      let minusSelect = document.getElementById("minus");
+      let count = 0;
+      plusSelect.addEventListener("click", function () {
+        count++;
+        counterSelect.style.color = "green";
+
+        counterSelect.innerText = count;
+      });
+      minusSelect.addEventListener("click", function () {
+        if (count > 0) {
+          count--;
+        }
+        counterSelect.innerText = count;
+      });
+      resetSelect.addEventListener("click", function () {
+        count = 0;
+        counterSelect.style.color = "red";
+        counterSelect.innerText = count;
+      });
+    </script>
+  </body>
+</html>

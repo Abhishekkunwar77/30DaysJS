@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index3.html</title>
+  </head>
+  <body>
+    <p id="color-changer-para">Current Color White</p>
+    <button id="btn-color-changer">Change BGColor</button>
+    <script>
+      //selecting the ids
+      let colorChangerPara = document.getElementById("color-changer-para");
+      let buttonClicker = document.getElementById("btn-color-changer");
+      //random colors
+      let randomColors = ["lime", "red", "yellow", "green", "blue", "tomato"];
+      buttonClicker.addEventListener("click", function () {
+        //picking the random colors
+        let colors =
+          randomColors[Math.floor(Math.random() * randomColors.length)];
+        document.body.style.backgroundColor = colors;
+        //changing the text according to the color
+        colorChangerPara.innerText = "Current Color " + colors;
+      });
+    </script>
+  </body>
+</html>

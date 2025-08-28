@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment</title>
+  </head>
+  <body>
+    <div
+      id="profile-card"
+      style="border: 1px solid gray; padding: 30px; width: 250px"
+    >
+      <h2 id="userName">Abhishek Kunwar</h2>
+      <p id="bio">I am learning JS</p>
+      <button id="toggleBioBtn">Toggle Bio</button>
+      <button id="changeBgBtn">Change Background</button>
+      <button id="addSkillBtn">Add Skill</button>
+      <ul id="skillList"></ul>
+    </div>
+    <script>
+      //toggling the bio text visible-invisible
+      let toggleBioText = document.getElementById("toggleBioBtn");
+      let bioChanger = document.getElementById("bio");
+      toggleBioText.addEventListener("click", function () {
+        if (bioChanger.style.display === "none") {
+          bioChanger.style.display = "block";
+        } else {
+          bioChanger.style.display = "none";
+        }
+      });
+
+      //changing the colors randomly
+      let buttonClicker = document.getElementById("changeBgBtn");
+      buttonClicker.addEventListener("click", function () {
+        let changeBackgroundColor = document.getElementById("profile-card");
+        const colors = [
+          "lightblue",
+          "lightgreen",
+          "lightpink",
+          "lightyellow",
+          "lightcoral",
+          "lightseagreen",
+          "lightsalmon",
+          "lightgoldenrodyellow",
+          "lightcyan",
+          "lightsteelblue",
+          "lightgray",
+          "lavender",
+          "mistyrose",
+          "honeydew",
+          "thistle",
+          "powderblue",
+          "palegreen",
+          "paleturquoise",
+          "palevioletred",
+          "peachpuff",
+          "lemonchiffon",
+          "mintcream",
+          "azure",
+          "khaki",
+        ];
+        changeBackgroundColor.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+      });
+
+      //adding skills
+      let addSkills = document.getElementById("addSkillBtn");
+      let skillListSet = document.getElementById("skillList");
+      addSkills.addEventListener("click", function () {
+        const skill = prompt("Enter a new skill: ");
+        if (skill) {
+          const li = document.createElement("li");
+          li.innerText = skill;
+          skillListSet.appendChild(li);
+        }
+      });
+    </script>
+  </body>
+</html>

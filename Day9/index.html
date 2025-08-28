@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicing JS</title>
+    <script>
+      // getElementById selector (id selector)
+      function changeTextOfPara() {
+        let para = document.getElementById("myPara");
+        para.innerText = "Changed to JS";
+      }
+      //query selector
+      function changeCoolColor() {
+        let cool = document.querySelector(".cool");
+        cool.style.color = "red";
+      }
+
+      //bg color changer using id selector
+      function changeBgColor() {
+        let changeColor = (document.getElementById(
+          "div-bgcolor"
+        ).style.backgroundColor = "green");
+      }
+
+      //toggling the text
+      function toggleText() {
+        let toggle = document.getElementById("text-toggle");
+        if (toggle.style.display === "none") {
+          toggle.style.display = "block";
+        } else {
+          toggle.style.display = "none";
+        }
+      }
+
+      // using normal cleaner mode
+      function normalToggle() {
+        document.querySelector(".normal-toggle").classList.toggle("hidden");
+      }
+    </script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!--getElementById selector example -->
+    <p class="hello-world-para" id="myPara">Hello World</p>
+    <button onclick="changeTextOfPara()">Change paragraph text</button>
+    <!-- querySelector example-->
+
+    <p class="cool">I am cool</p>
+    <button onclick="changeCoolColor()">
+      change cool color through query selector
+    </button>
+
+    <!-- Changing the background color-->
+    <div id="div-bgcolor">
+      <button onclick="changeBgColor()">Change BGCOLOR</button>
+    </div>
+
+    <!--Text toggling through button-->
+    <div>
+      <p id="text-toggle">Hello, I'm visible!</p>
+      <button onclick="toggleText()">Toggle text</button>
+    </div>
+    <div>
+      <p class="normal-toggle">Text with Normal function</p>
+      <button onclick="normalToggle()">Normal Toggling</button>
+    </div>
+
+    <!-- Using the addEventListener-->
+    <div>
+      <p id="event-listener">Hello event listener</p>
+      <button id="changeColorBtn">Event listener</button>
+    </div>
+    <script>
+      // using addEvenetListener
+      let btn = document.getElementById("changeColorBtn");
+      btn.addEventListener("click", function () {
+        document.body.style.backgroundColor = "red";
+      });
+    </script>
+  </body>
+</html>

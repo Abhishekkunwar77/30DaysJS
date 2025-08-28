@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index1</title>
+  </head>
+  <body>
+    <div>
+      <p id="hello-world-text">Hello, World!</p>
+      <button id="toggle-text-button">Toggle Text</button>
+    </div>
+
+    <script>
+      let text = document.getElementById("hello-world-text");
+      let toggleBtn = document.getElementById("toggle-text-button");
+      toggleBtn.addEventListener("click", function () {
+        if (text.innerText === "Hello, World!") {
+          text.innerText = "You clicked the button";
+        } else {
+          text.innerText = "Hello, World!";
+        }
+      });
+    </script>
+  </body>
+</html>

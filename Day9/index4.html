@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index4.html</title>
+  </head>
+  <body>
+    <p id="para">Hello, World!</p>
+    <button id="btn">Toggle Text</button>
+    <script>
+      let paraSelect = document.getElementById("para");
+      let btnSelect = document.getElementById("btn");
+      btnSelect.addEventListener("click", function () {
+        if (paraSelect.innerText === "Hello, World!") {
+          paraSelect.innerText = "Goodbye, World!";
+          btnSelect.innerText = "Show Hello";
+        } else {
+          paraSelect.innerText = "Hello, World!";
+          btnSelect.innerText = "Show Goodbye";
+        }
+      });
+    </script>
+  </body>
+</html>

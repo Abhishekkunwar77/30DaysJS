@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index2</title>
+  </head>
+  <body>
+    <h1 id="heading-tag">This is h1 tag (changed color with getElementById)</h1>
+    <p class="info">This is info paragraph</p>
+    <button id="btn">Click Me</button>
+
+    <script>
+      //get element by id
+      let headingTag = document.getElementById("heading-tag");
+      headingTag.style.color = "green";
+
+      //query selector
+      let changeText = document.querySelector(".info");
+      changeText.textContent =
+        "Changed from This is info paragraph to  /the content with query  selector using textContent/";
+
+      //creating a new div tag
+      const newDiv = document.createElement("div");
+      newDiv.textContent = "Hi i am created using createElement";
+      document.body.appendChild(newDiv);
+      // getelementbyclassname
+      const infoText = document.getElementsByClassName("info");
+      infoText[0].style.fontWeight = "bold";
+
+      // overall functionality  by changing the color
+      document.getElementById("btn").onclick = function () {
+        document.body.style.background =
+          document.body.style.background === "lightblue" ? "lime" : "lightblue";
+      };
+    </script>
+  </body>
+</html>

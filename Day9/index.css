@@ -1,0 +1,21 @@
+.hello-world-para {
+  height: 100px;
+  width: 300px;
+}
+.cool {
+  height: 100px;
+  width: 300px;
+}
+#div-bgcolor {
+  height: 100px;
+  width: 200px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden{
+    display:none;
+    height: 100px;
+    width: 400px;
+}
