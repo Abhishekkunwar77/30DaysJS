@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Tracker</title>
+    <link rel="stylesheet" href="KeyTracker.css" />
+  </head>
+  <body>
+    <h1>Key Tracker - Track the last 10 keys you pressed</h1>
+    <p class="output-printer" id="output"></p>
+    <script>
+      let keys = [];
+      document.addEventListener('keydown', function (e) {
+        keys.push(e.key);
+        if (keys.length > 10) {
+          keys.shift();
+        }
+        document.getElementById('output').textContent = keys.join(' ');
+      });
+    </script>
+  </body>
+</html>

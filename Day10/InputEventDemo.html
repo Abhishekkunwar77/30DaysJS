@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Event Demo</title>
+    <link rel="stylesheet" href="InputEventDemo.css" />
+  </head>
+  <body>
+    <h1>
+      <em>
+        Type anything to see the real-time<br />
+        changes that happens due to input event</em
+      >
+    </h1>
+    <input
+      class="input-area"
+      type="text"
+      id="inputField"
+      placeholder="Enter anything"
+    />
+    <p class="output-area" id="output"></p>
+    <script>
+      let inputField = document.getElementById('inputField');
+      let outputArea = document.getElementById('output');
+      inputField.addEventListener('input', function (e) {
+        outputArea.textContent = `${e.target.value}`;
+      });
+    </script>
+  </body>
+</html>

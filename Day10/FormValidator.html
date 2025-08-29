@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validator</title>
+  </head>
+  <body>
+    <div>
+      <form>
+        <input id="first-input" type="text" placeholder="enter name" />
+        <small id="name-msg"></small>
+        <input id="second-input" type="email" placeholder="enter email" />
+        <button id="btn" >submit</button>
+        <small id="email-msg"></small>
+      </form>
+    </div>
+    <script>
+      let form = document.querySelector('form');
+      let nameMsg = document.getElementById('name-msg');
+      let emailMsg = document.getElementById('email-msg');
+      let nameInputValidator = document.getElementById('first-input');
+      let emailInputValidator = document.getElementById('second-input');
+      let buttonValidator = document.getElementById('btn');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let nameValue = nameInputValidator.value.trim();
+        let emailValue = emailInputValidator.value.trim();
+        let valid = true;
+        if (nameValue === '') {
+          nameMsg.textContent = 'Name cannot be empty';
+          valid = false;
+        } else if (nameValue.length <= 3) {
+          nameMsg.textContent = 'Email should be of more than 3 letters';
+        } else {
+          nameMsg.textContent = 'Looks good!';
+        }
+        if (emailValue === '') {
+          emailMsg.textContent = 'Email cannot be empty';
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+          emailMsg.textContent = 'Enter a valid email!  ';
+          valid = false;
+        } else {
+          emailMsg.textContent = 'Email Looks Good!';
+        }
+        if (valid) {
+          alert('Form submitted successfully!');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+  </head>
+
+  <body>
+    <h1>Count the length of the text</h1>
+    <input
+      type="text"
+      placeholder="enter any text"
+      id="text-area"
+      maxlength="200"
+    />
+    <p id="character-count"></p>
+    <script>
+      let maxChars = 200;
+      let textArea = document.getElementById('text-area');
+      let characterCounter = document.getElementById('character-count');
+      textArea.addEventListener('input', function (e) {
+        const currentLength = textArea.value.length;
+        if (currentLength > maxChars) {
+          textArea.value = textArea.slice(0, maxChars);
+        }
+        characterCounter.innerText = `${textArea.value.length}/${maxChars} character used.`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Validator</title>
+    <link rel="stylesheet" href="InputValidator.css" />
+  </head>
+  <body>
+    <input id="inputArea" type="text" placeholder="Enter something..." />
+    <p id="lengthArea"></p>
+    <script>
+      let inputArea = document.getElementById('inputArea');
+      let lengthArea = document.getElementById('lengthArea');
+      inputArea.addEventListener('input', function (e) {
+        let lengthOfInput = inputArea.value.trim().length;
+        if (lengthOfInput >= 5) {
+          lengthArea.innerText = '✅ valid user';
+        } else {
+          lengthArea.innerText = '❌Must be atleast 5 character';
+        }
+      });
+    </script>
+  </body>
+</html>

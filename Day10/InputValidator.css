@@ -1,0 +1,15 @@
+#inputArea {
+  border: 2px solid rgb(238, 155, 140);
+  border-radius: 8px;
+}
+#lengthArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: wheat;
+  width: 220px;
+  height: 40px;
+}
+#inputArea:focus {
+  border: 2px solid #99ff00;
+}
