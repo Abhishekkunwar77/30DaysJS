@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList App</title>
+  </head>
+  <body>
+    <label for="todolist"
+      >Enter task:
+      <input id="inputField" type="text" />
+    </label>
+    <button id="addBtn">Add</button>
+    <div>
+      <ul id="listOfTask"></ul>
+    </div>
+    <script>
+      let addBtn = document.getElementById('addBtn');
+      let inputField = document.getElementById('inputField');
+      let listOfTask = document.getElementById('listOfTask');
+      let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+      function renderTasks() {
+        listOfTask.innerHTML = '';
+        tasks.forEach((task) => {
+          let li = document.createElement('li');
+          li.textContent = task;
+          listOfTask.appendChild(li);
+        });
+      }
+      window.onload = renderTasks;
+      addBtn.addEventListener('click', function () {
+        let taskText = inputField.value.trim();
+        if (taskText === '') {
+          alert('Input must cannot be empty.');
+          return;
+        }
+        tasks.push(taskText);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTasks();
+        inputField.value = '';
+      });
+    </script>
+  </body>
+</html>

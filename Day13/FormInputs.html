@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Input</title>
+  </head>
+  <style>
+    #mainContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 200px;
+      background-color: wheat;
+      width: 270px;
+      border-radius: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    #submitBtn {
+      border: none;
+      border-radius: 20px;
+      font-size: 15px;
+      padding: 5px;
+      background-color: rgb(62, 206, 246);
+      color: whitesmoke;
+    }
+  </style>
+  <body>
+    <div id="mainContainer">
+      <label for="name"
+        >Name:
+        <input
+          id="input1"
+          type="text"
+          placeholder="enter your name"
+          minlength="3"
+        />
+      </label>
+      <label for="email"
+        >Email:
+        <input
+          id="input2"
+          type="email"
+          placeholder="enter your name"
+          minlength="5"
+        />
+      </label>
+      <label for="phone"
+        >Contact:
+        <input
+          id="input3"
+          type="text"
+          placeholder="enter your name"
+          minlength="8"
+        />
+      </label>
+      <button id="submitBtn">Submit</button>
+    </div>
+    <script>
+      let input1 = document.getElementById('input1');
+      let input2 = document.getElementById('input2');
+      let input3 = document.getElementById('input3');
+      let submitBtn = document.getElementById('submitBtn');
+      submitBtn.addEventListener('click', function () {
+        localStorage.setItem('Name', input1.value);
+        localStorage.setItem('Gmail', input2.value);
+        localStorage.setItem('Contact', input3.value);
+        alert('Data saved in localStorage ✅');
+        input1.value = '';
+        input2.value = '';
+        input3.value = '';
+      });
+      window.onload = function () {
+        if (localStorage.getItem('Name')) {
+          input1.value = localStorage.getItem('Name');
+        }
+        if (localStorage.getItem('Gmail')) {
+          input2.value = localStorage.getItem('Gmail');
+        }
+        if (localStorage.getItem('Contact')) {
+          input3.value = localStorage.getItem('Contact');
+        }
+      };
+    </script>
+  </body>
+</html>

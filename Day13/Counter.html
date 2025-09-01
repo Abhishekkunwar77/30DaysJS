@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <style>
+    #incButton {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      background-color: #1fa71f;
+      border: none;
+      font-size: 60px;
+    }
+    #decButton {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+      text-align: center;
+      background-color: #ff6a6a;
+      border: none;
+      font-size: 60px;
+    }
+    #rstButton {
+      border-radius: 10px;
+      padding: 9px;
+      background-color: rgb(196, 193, 193);
+      border: none;
+      height: 100px;
+      width: 100px;
+      font-size: 50px;
+    }
+    #incButton:hover,
+    #decButton:hover,
+    #rstButton:hover,
+    #getCurrentCount {
+      cursor: pointer;
+    }
+    #getCurrentCount {
+      border-radius: 15px;
+      padding: 9px;
+      background-color: rgb(37, 196, 143);
+      border: none;
+      font-size: 25px;
+    }
+    #counterValue {
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: wheat;
+      width: 100px;
+      font-family: fantasy;
+      color: cornflowerblue;
+      font-size: 75px;
+    }
+    #currentCountArea {
+      border-radius: 10px;
+      background-color: wheat;
+      font-family: fantasy;
+      color: cornflowerblue;
+      font-size: 50px;
+      margin-top: 50px;
+      height: 100px;
+      width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <div>
+      <p id="counterValue"></p>
+    </div>
+    <button id="incButton">➕</button>
+    <button id="decButton">➖</button>
+    <button id="rstButton">®️</button>
+    <button id="getCurrentCount">Get Current Count</button>
+    <div>
+      <p id="currentCountArea">Current Count :</p>
+    </div>
+    <script>
+      let getCurrentCount = document.getElementById('getCurrentCount');
+      let counterValue = document.getElementById('counterValue');
+      let incButton = document.getElementById('incButton');
+      let decButton = document.getElementById('decButton');
+      let currentCountArea = document.getElementById('currentCountArea');
+      let count = parseInt(localStorage.getItem('counter')) || 0;
+      counterValue.innerText = count;
+      // increment function
+      incButton.addEventListener('click', function () {
+        count++;
+        localStorage.setItem('counter', count);
+        counterValue.innerText = count;
+      });
+      //decrement function
+      decButton.addEventListener('click', function () {
+        if (count > 0) {
+          count--;
+          localStorage.setItem('counter', count);
+          counterValue.innerText = count;
+        }
+      });
+      rstButton.addEventListener('click', function resetCount() {
+        count = 0;
+        localStorage.removeItem('counter');
+        counterValue.innerText = count;
+      });
+
+      getCurrentCount.addEventListener('click', function () {
+        let savedCount = localStorage.getItem('counter');
+        if (savedCount !== null) {
+          currentCountArea.innerText = `Current Count : ${savedCount}`;
+        } else {
+          currentCountArea.innerText = `Current Count : 0`;
+        }
+      });
+    </script>
+  </body>
+</html>

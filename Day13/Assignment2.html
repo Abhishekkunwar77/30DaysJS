@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persistent Note App</title>
+  </head>
+  <body>
+    <div>
+      <label for="notes">Add a Note: </label>
+      <textarea id="textField"></textarea>
+      <button id="addBtn">Add</button>
+      <button id="removeBtn">Delete All</button>
+    </div>
+    <div>
+      <h3>Saved Notes:</h3>
+      <ul id="notesList"></ul>
+    </div>
+
+    <script>
+      let textField = document.getElementById('textField');
+      let notesList = document.getElementById('notesList');
+      let addBtn = document.getElementById('addBtn');
+      let removeBtn = document.getElementById('removeBtn');
+
+      window.onload = function () {
+        displayNotes();
+      };
+      function addNotes() {
+        let userNote = textField.value.trim();
+        if (userNote === '') {
+          alert('Note cannot be empty');
+          return;
+        }
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.push(userNote);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        alert('Notes saved!');
+        textField.value = '';
+        displayNotes();
+      }
+      function removeNotes() {
+        localStorage.removeItem('notes');
+        displayNotes();
+        confirm('Are you sure you want to delete?');
+      }
+
+      function displayNotes() {
+        notesList.innerHTML = '';
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+        notes.forEach((note, index) => {
+          let li = document.createElement('li');
+          li.textContent = note;
+          notesList.appendChild(li);
+        });
+      }
+    
+
+      addBtn.addEventListener('click', addNotes);
+      removeBtn.addEventListener('click', removeNotes);
+    </script>
+  </body>
+</html>
