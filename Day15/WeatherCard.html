@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Cards</title>
+    <style>
+      #weatherCard {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 900px;
+        align-items: center;
+        gap: 30px;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      .card {
+        background-color: aqua;
+        text-align: center;
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+      }
+      #toggleBtn {
+        background-color: antiquewhite;
+        border: 2px solid rgb(221, 83, 83);
+        border-radius: 15px;
+        padding: 3px;
+        font-size: 20px;
+        margin-top: 20px;
+      }
+      #toggleBtn:hover {
+        cursor: pointer;
+      }
+      .cityName {
+        font-size: 25px;
+        color: rgb(163, 139, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="weatherCard"></div>
+    <button id="toggleBtn">Show in °F</button>
+  </body>
+  <script>
+    const weather = [
+      {
+        city: 'Coimbatore',
+        temp: 28,
+        condition: 'Sunny',
+        humidity: 60,
+      },
+      {
+        city: 'Chennai',
+        temp: 32,
+        condition: 'Humid',
+        humidity: 75,
+      },
+      {
+        city: 'Bangalore',
+        temp: 25,
+        condition: 'Cloudy',
+        humidity: 68,
+      },
+      {
+        city: 'Mumbai',
+        temp: 30,
+        condition: 'Rainy',
+        humidity: 82,
+      },
+      {
+        city: 'Kolkata',
+        temp: 31,
+        condition: 'Cloudy',
+        humidity: 65,
+      },
+      {
+        city: 'Delhi',
+        temp: 35,
+        condition: 'Hot',
+        humidity: 40,
+      },
+    ];
+
+    let showCelsius = true;
+    const renderCards = () => {
+      weatherHTML = weather
+        .map((w) => {
+          let tempDisplay = showCelsius
+            ? `${w.temp}°C`
+            : `${((w.temp * 9) / 5 + 32).toFixed(2)}°F`;
+          return `
+          <div class="card">
+            <h1 class="cityName">${w.city}</h1>
+            <p>Temperature: ${tempDisplay}</p>
+            <p>Condition: ${w.condition}</p>
+            <p>Humidity: ${w.humidity}</p>
+            </div>
+        `;
+        })
+        .join('');
+      document.getElementById('weatherCard').innerHTML = weatherHTML;
+    };
+    renderCards();
+
+    let toggleBtn = document.getElementById('toggleBtn');
+    toggleBtn.addEventListener('click', () => {
+      showCelsius = !showCelsius;
+      toggleBtn.textContent = showCelsius ? 'Show in °F' : 'Show in °C';
+      renderCards();
+    });
+  </script>
+</html>
